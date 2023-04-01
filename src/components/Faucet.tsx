@@ -5,12 +5,23 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { ChangeEvent, useState, useEffect } from "react";
 import { GithubIcon } from "./GithubIcon";
 import { SendButton } from "./SendButton";
 
 export const Faucet = () => {
   const [walletAddress, setWalletAddress] = useState("");
+  const placeholder = "0xaa2F34E41B397aD905e2f48059338522D05CA534 or myaccount"
+
+  useEffect(() => {
+    setWalletAddress(localStorage.getItem("walletAddress") || "");
+  }, []);
+
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const walletAddress = e.target.value;
+    setWalletAddress(walletAddress);
+    localStorage.setItem("walletAddress", walletAddress);
+  }
 
   return (
     <Box
@@ -37,12 +48,12 @@ export const Faucet = () => {
       <Stack marginTop="20px" maxWidth="2xl" width="100%">
         <Input
           variant="filled"
-          placeholder="0xaa2F34E41B397aD905e2f48059338522D05CA534 or myaccount"
+          placeholder={placeholder}
           value={walletAddress}
-          onChange={(e) => setWalletAddress(e.target.value)}
+          onChange={handleOnChange}
         />
         <Stack direction="row">
-          <SendButton type="testnet" walletAddress={walletAddress}>
+          <SendButton walletAddress={walletAddress}>
             Send
           </SendButton>
         </Stack>

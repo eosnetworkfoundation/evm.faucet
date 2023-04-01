@@ -9,10 +9,11 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import { useLogs } from "../hooks/useLogs";
+import useSWR from "swr";
 
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { sanitizeAddress } from "../lib/sanitizeAddress";
 dayjs.extend(relativeTime);
 
 interface Transfer {
@@ -21,8 +22,10 @@ interface Transfer {
   timestamp: string;
 };
 
+const fetcher = (url: string): Promise<{address: string, timestamp: number}[]> => fetch(url).then((res) => res.json());
+
 export const TransferHistory = () => {
-  const { data: history, isLoading } = useLogs();
+  const { data, error, isLoading } = useSWR('/api/history', fetcher)
 
   return (
     <Box padding="20px" maxHeight="100vh" overflow="auto">
@@ -39,9 +42,9 @@ export const TransferHistory = () => {
             </Tr>
           </Thead>
           <Tbody>
-            {history?.map((transfer: Transfer) => (
-              <Tr key={transfer.id}>
-                <Td>{transfer.walletAddress}</Td>
+            {data?.map((transfer, index) => (
+              <Tr key={index}>
+                <Td>{sanitizeAddress(transfer.address)}</Td>
                 <Td>{dayjs(transfer.timestamp).fromNow()}</Td>
               </Tr>
             ))}

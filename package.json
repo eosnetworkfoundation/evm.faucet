@@ -15,7 +15,7 @@
     "framer-motion": "7.x",
     "react": "18.x",
     "react-dom": "18.x",
-    "react-query": "3.x"
+    "swr": "2.x"
   },
   "devDependencies": {
     "@types/node": "18.x",

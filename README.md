@@ -21,3 +21,5 @@ $ npm run dev
   - [ ] Success Notification
 - [ ] History of last 10 faucet transactions
 - [ ] Rate limit based on cookies (1 request per second)
+- [ ] Detect EVM wallet fro Metamask
+- [x] Save address to localStorage
