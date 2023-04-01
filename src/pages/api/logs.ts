@@ -1,4 +1,4 @@
-import { Log, PrismaClient } from "@prisma/client";
+// import { Log, PrismaClient } from "@prisma/client";
 // import { prisma } from "lib/prisma";
 // import { sanitizeAddress } from "lib/sanitizeAddress";
 import type { NextApiRequest, NextApiResponse } from "next";
@@ -7,7 +7,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<{
     ok: boolean;
-    logs?: Log[];
+    // logs?: Log[];
   }>
 ) {
   if (req.method !== "GET") return res.status(405).json({ ok: false });
@@ -24,5 +24,5 @@ export default async function handler(
   // }));
 
   // res.status(200).json({ ok: true, logs: modifiedLogs });
-  res.status(200).json({ ok: true, logs: [] });
+  res.status(200).json({ ok: true });
 }

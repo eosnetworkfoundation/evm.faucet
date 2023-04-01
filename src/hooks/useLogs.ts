@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 
 export const useSaveLog = () => {
@@ -6,7 +6,7 @@ export const useSaveLog = () => {
 
   return useMutation(
     async (walletAddress: string) => {
-      await axios.post("/api/save-log", { walletAddress });
+      // await axios.post("/api/save-log", { walletAddress });
     },
     {
       onSuccess: () => {
@@ -18,7 +18,8 @@ export const useSaveLog = () => {
 
 export const useLogs = () => {
   return useQuery("logs", async () => {
-    const { data } = await axios.get("/api/logs");
-    return data.logs;
+    // const { data } = await axios.get("/api/logs");
+    // return data.logs;
+    return [];
   });
 };
