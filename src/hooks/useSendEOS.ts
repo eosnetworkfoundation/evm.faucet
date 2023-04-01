@@ -21,7 +21,8 @@ export const useSendEOS = (
           title: "Success",
           description: `EOS sent to ${sanitizeAddress(walletAddress)}`,
           status: "success",
-          duration: 9000,
+          duration: 4000,
+          isClosable: true
         });
       },
       onError: (error: any) => {
@@ -29,7 +30,7 @@ export const useSendEOS = (
           title: "Error",
           description: JSON.stringify(error.message, null, 2),
           status: "error",
-          duration: 9000,
+          duration: 4000,
         });
       },
     }
