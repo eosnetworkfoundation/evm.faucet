@@ -21,10 +21,10 @@ export const SendButton = (props: PropsWithChildren<SendButtonProps>) => {
 
   return (
     <Button
-      backgroundColor="rgb(6, 247, 247)"
+      backgroundColor="#3E65C2"
       color="rgb(42, 49, 49)"
       _hover={{
-        backgroundColor: "rgb(6, 247, 247)",
+        backgroundColor: "#FFFFFF",
       }}
       onClick={onSubmit}
       flex="1"

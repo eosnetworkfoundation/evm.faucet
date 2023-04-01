@@ -47,14 +47,14 @@ export const Faucet = () => {
           </SendButton>
         </Stack>
         <a
-          href="https://github.com/https://github.com/eosnetworkfoundation/faucet"
+          href="https://github.com/eosnetworkfoundation/evm.faucet"
           target="_blank"
           rel="noopener noreferrer"
           style={{
             margin: "auto",
           }}
         >
-          <GithubIcon />
+          <span style={{margin:"2px"}}><GithubIcon /></span>
         </a>
       </Stack>
     </Box>
