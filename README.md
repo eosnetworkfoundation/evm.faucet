@@ -1,6 +1,6 @@
 # `EOS EVM` Faucet
 
-<img width="1223" alt="image" src="https://user-images.githubusercontent.com/550895/229303798-5602b7d4-a48b-4de9-a8eb-0911990b214e.png">
+<img width="1223" alt="image" src="https://user-images.githubusercontent.com/550895/229307696-e704a8d2-a2d2-45b1-b99e-919f77c66e27.png">
 
 ## Quickstart
 
