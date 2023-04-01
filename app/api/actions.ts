@@ -1,5 +1,6 @@
 import { AnyAction } from "@wharfkit/session"
-import { ACCOUNT, authorization } from "./config"
+import { ACCOUNT } from "./constants"
+import { authorization } from "./config"
 
 export const send = (to: string): AnyAction => {
     return {

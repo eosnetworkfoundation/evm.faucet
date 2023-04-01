@@ -14,10 +14,8 @@ import useSWR from "swr";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { sanitizeAddress } from "../lib/sanitizeAddress";
-import { History } from "../../app/api/history/route";
+import { fetcher } from "../../app/api/history/route";
 dayjs.extend(relativeTime);
-
-const fetcher = (url: string): Promise<History[]> => fetch(url).then((res) => res.json());
 
 export const TransferHistory = () => {
   const { data, error, isLoading } = useSWR('/api/history', fetcher)

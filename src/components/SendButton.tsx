@@ -2,6 +2,7 @@ import { Button, useToast } from "@chakra-ui/react";
 import { PropsWithChildren, useState } from "react";
 import { sanitizeAddress } from "../lib/sanitizeAddress";
 import { useSWRConfig } from "swr"
+import { timeout } from "../../app/api/utils";
 
 type SendButtonProps = {
   walletAddress: string;
@@ -28,6 +29,7 @@ export const SendButton = (props: PropsWithChildren<SendButtonProps>) => {
         duration: 4000,
         isClosable: true
       });
+      await timeout(1000)
       mutate("/api/history");
     } catch (error) {
       toast({
