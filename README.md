@@ -11,6 +11,7 @@ $ npm run dev
 
 ## Features
 
+- [x] Faucet logo design
 - [ ] User input address
   - [ ] Regex validation
   - [ ] EOS address
@@ -21,5 +22,8 @@ $ npm run dev
   - [ ] Success Notification
 - [ ] History of last 10 faucet transactions
 - [ ] Rate limit based on cookies (1 request per second)
-- [ ] Detect EVM wallet fro Metamask
+- [ ] Detect EVM wallet:
+  - [ ] Metamask
+  - [ ] Coinbase Wallet
 - [x] Save address to localStorage
+- [ ] Mobile optimization
