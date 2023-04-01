@@ -1,12 +1,5 @@
 body {
-  background: rgb(45, 212, 87);
-  background-image: url('/bg.jpg');
-
-  height: 100%;
-  width: 100%;
-
-  background-position: center;
-  background-size: cover;
+  background: rgb(18,22,22);
 }
 /* 
 :root {

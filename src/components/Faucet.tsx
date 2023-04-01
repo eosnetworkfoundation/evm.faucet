@@ -1,10 +1,10 @@
 import {
   Box,
-  Image,
   Input,
   Stack,
   Text,
 } from "@chakra-ui/react";
+import Image from "next/image";
 import { ChangeEvent, useState, useEffect } from "react";
 import { GithubIcon } from "./GithubIcon";
 import { SendButton } from "./SendButton";
@@ -34,7 +34,7 @@ export const Faucet = () => {
       margin="auto"
       position="relative"
     >
-      <Image src="/logo.png" height="150px" />
+      <Image alt={"logo"} src="/logo.png" height={150} width={150} />
       <Text fontSize="2xl" marginTop="15px" fontWeight="800" color="#FFFFF">
         Quickly send a $EOS to your wallet.
       </Text>
