@@ -15,7 +15,9 @@
     "framer-motion": "7.x",
     "react": "18.x",
     "react-dom": "18.x",
-    "swr": "2.x"
+    "swr": "2.x",
+    "@wharfkit/session": "0.3.x",
+    "@wharfkit/wallet-plugin-privatekey": "0.3.x"
   },
   "devDependencies": {
     "@types/node": "18.x",

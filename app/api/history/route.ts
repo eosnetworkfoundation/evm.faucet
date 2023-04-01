@@ -1,16 +1,23 @@
 import { toJSON } from "../utils";
-
+import { ACCOUNT, session } from "../config";
 export interface History {
     address: string, timestamp: number
 }
 
-export function GET(request: Request ) {
-    const searchParams = new URL(request.url).searchParams;
-    const data: History[] = [
-        {address: "0xed33259a056f4fb449ffb7b7e2ecb43a9b5685bf", timestamp: new Date().getTime() - 10000},
-        {address: "0xebec795c9c8bbd61ffc14a6662944748f299cacf", timestamp: new Date().getTime() - 50000},
-        {address: "0x9b1f7f645351af3631a656421ed2e40f2802e6c0", timestamp: new Date().getTime() - 100000},
-        {address: "0x388c818ca8b9251b393131c08a736a67ccb19297", timestamp: new Date().getTime() - 200000},
-    ]
+export async function GET(request: Request ) {
+    const response = await session.client.v1.chain.get_table_rows({
+        code: ACCOUNT,
+        scope: ACCOUNT,
+        table: "history",
+        json: true,
+        limit: 8,
+        reverse: true,
+    })
+    const data: History[] = response.rows.map(row => {
+        return{
+            address: row.receiver,
+            timestamp: new Date(row.timestamp + "Z").getTime()
+        }
+    })
     return toJSON(data);
 }

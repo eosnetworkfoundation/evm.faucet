@@ -1,6 +1,7 @@
 import { Button, useToast } from "@chakra-ui/react";
 import { PropsWithChildren, useState } from "react";
 import { sanitizeAddress } from "../lib/sanitizeAddress";
+import { useSWRConfig } from "swr"
 
 type SendButtonProps = {
   walletAddress: string;
@@ -10,12 +11,16 @@ export const SendButton = (props: PropsWithChildren<SendButtonProps>) => {
   const { walletAddress } = props;
   const toast = useToast();
   const [isLoading, setLoading] = useState(false);
+  const { mutate } = useSWRConfig();
 
   const onSubmit = async () => {
     if ( isLoading ) return;
     setLoading(true);
     try {
-      const response = await fetch("/api/send", {body: JSON.stringify({walletAddress}), method: "POST"});
+      const response = await fetch("/api/send", {body: JSON.stringify({to: walletAddress}), method: "POST"})
+      if (!response.ok) {
+        throw new Error(await response.text());
+      }
       toast({
         title: "Success",
         description: `EOS sent to ${sanitizeAddress(walletAddress)}`,
@@ -23,10 +28,11 @@ export const SendButton = (props: PropsWithChildren<SendButtonProps>) => {
         duration: 4000,
         isClosable: true
       });
+      mutate("/api/history");
     } catch (error) {
       toast({
         title: "Error",
-        description: JSON.stringify(error.message, null, 2),
+        description: error.message,
         status: "error",
         duration: 4000,
       });
