@@ -15,6 +15,7 @@
     "@wharfkit/wallet-plugin-privatekey": "0.3.x",
     "dayjs": "1.x",
     "framer-motion": "7.x",
+    "nextjs-google-analytics": "^2.3.3",
     "react": "18.x",
     "react-dom": "18.x",
     "swr": "2.x"
@@ -23,7 +24,7 @@
     "@types/node": "18.x",
     "@types/react": "18.x",
     "@types/react-dom": "18.x",
-    "next": "^13.2.5-canary.25",
+    "next": "^13.2.4",
     "sass": "^1.60.0",
     "typescript": "5.x"
   }

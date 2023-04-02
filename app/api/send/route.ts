@@ -2,7 +2,7 @@ import { send } from "../actions";
 import { session } from "../config";
 import { toJSON } from "../utils";
 
-export const runtime = "edge";
+export const runtime = "node";
 
 export async function POST(request: Request ) {
     try {
