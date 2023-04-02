@@ -2,6 +2,8 @@ import { send } from "../actions";
 import { session } from "../config";
 import { toJSON } from "../utils";
 
+export const runtime = "edge";
+
 export async function POST(request: Request ) {
     try {
         const { to } = await request.json();

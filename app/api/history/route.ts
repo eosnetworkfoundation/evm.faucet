@@ -4,6 +4,8 @@ export interface History {
     address: string, timestamp: number
 }
 
+export const runtime = "edge";
+
 export const validate = 0;
 
 export async function GET(request: Request ) {
