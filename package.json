@@ -11,19 +11,19 @@
     "@chakra-ui/react": "2.x",
     "@emotion/react": "11.x",
     "@emotion/styled": "11.x",
+    "@wharfkit/session": "0.3.x",
+    "@wharfkit/wallet-plugin-privatekey": "0.3.x",
     "dayjs": "1.x",
     "framer-motion": "7.x",
     "react": "18.x",
     "react-dom": "18.x",
-    "swr": "2.x",
-    "@wharfkit/session": "0.3.x",
-    "@wharfkit/wallet-plugin-privatekey": "0.3.x"
+    "swr": "2.x"
   },
   "devDependencies": {
     "@types/node": "18.x",
     "@types/react": "18.x",
     "@types/react-dom": "18.x",
-    "next": "13.2.x",
+    "next": "^13.2.5-canary.25",
     "typescript": "5.x"
   }
 }
