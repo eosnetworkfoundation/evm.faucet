@@ -1,21 +1,16 @@
-import { Box, Heading, Spinner, Table, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
+import { Box, Heading, Spinner, Table, Tbody, Td, Tfoot, Th, Thead, Tr } from "@chakra-ui/react";
 import useSWR from "swr";
 
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { sanitizeAddress } from "../lib/sanitizeAddress";
-import { get_history } from "../../app/api/tables";
 import Link from "next/link";
+import { HistoryRate } from "./HistoryRate";
 dayjs.extend(relativeTime);
 
-async function fetcher() {
-  const response = await get_history();
-  return response.rows.map(row => {
-    return {
-        address: row.receiver,
-        timestamp: new Date(row.timestamp + "Z").getTime()
-    }
-  })
+export async function fetcher(url: string) {
+  const response = await fetch(url);
+  return response.json();
 }
 
 export const TransferHistory = () => {
@@ -40,8 +35,11 @@ export const TransferHistory = () => {
               <TransferRow key={index} transfer={transfer} />
             ))}
           </Tbody>
+          <Tfoot>
+          </Tfoot>
         </Table>
       )}
+      <HistoryRate />
     </Box>
   );
 };

@@ -1,5 +1,5 @@
 import { toJSON } from "../utils";
-import { get_history } from "../tables";
+import { get_history } from "./fetcher";
 
 export interface History {
     address: string, timestamp: number
@@ -7,7 +7,7 @@ export interface History {
 
 export const runtime = "edge";
 
-export const revalidate = 0;
+export const revalidate = 60;
 
 export async function GET(request: Request ) {
     const response = await get_history();

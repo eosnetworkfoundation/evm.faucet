@@ -1,5 +1,5 @@
-import { toJSON } from "../utils";
-import { get_balance } from "../tables";
+import { toText } from "../utils";
+import { get_balance } from "./fetcher";
 
 export interface Balance {
     address: string, timestamp: number
@@ -15,8 +15,8 @@ export async function GET(request: Request ) {
         if ( !address ) throw "address is required";
         const response = await get_balance(address);
         const data = response.rows[0]?.balance ?? 0.0;
-        return new Response(data);
+        return toText(data);
     } catch (e) {
-        return new Response(e.message, {status: 400});
+        return toText(e.message, 400);
     }
 }
