@@ -10,7 +10,7 @@ export const runtime = "edge";
 export const revalidate = 600;
 
 export async function GET(request: Request ) {
-    const response = await get_history(5000);
+    const response = await get_history(2000);
     const now = Math.floor(new Date().getTime() / 1000);
     const last = new Date(response.rows.reverse()[0].timestamp + "Z").getTime() / 1000;
     const total = response.rows.length;
