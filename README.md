@@ -12,18 +12,19 @@ $ npm run dev
 ## Features
 
 - [x] Faucet logo design
-- [ ] User input address
+- [x] User input address
   - [ ] Regex validation
   - [ ] EOS address
   - [ ] EVM address
-- [ ] Send EOS transfers (via internal API)
-  - [ ] EVM (via bridge `eosio.evm`)
-  - [ ] EOS
-  - [ ] Success Notification
-- [ ] History of last 10 faucet transactions
+- [x] Send EOS transfers (via internal API)
+  - [x] EVM (via bridge `eosio.evm`)
+  - [x] EOS
+  - [x] Success Notification
+- [x] History of last 10 faucet transactions
 - [ ] Rate limit based on cookies (1 request per second)
 - [ ] Detect EVM wallet:
   - [ ] Metamask
   - [ ] Coinbase Wallet
 - [x] Save address to localStorage
-- [ ] Mobile optimization
+- [x] Mobile optimization
+- [x] Edge runtime
