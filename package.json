@@ -24,6 +24,7 @@
     "@types/react": "18.x",
     "@types/react-dom": "18.x",
     "next": "^13.2.5-canary.25",
+    "sass": "^1.60.0",
     "typescript": "5.x"
   }
 }
