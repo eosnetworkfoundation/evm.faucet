@@ -14,8 +14,18 @@ import useSWR from "swr";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { sanitizeAddress } from "../lib/sanitizeAddress";
-import { fetcher } from "../../app/api/history/route";
+import { get_history } from "../../app/api/tables";
 dayjs.extend(relativeTime);
+
+async function fetcher() {
+  const response = await get_history();
+  return response.rows.map(row => {
+    return {
+        address: row.receiver,
+        timestamp: new Date(row.timestamp + "Z").getTime()
+    }
+  })
+}
 
 export const TransferHistory = () => {
   const { data, error, isLoading } = useSWR('/api/history', fetcher)
