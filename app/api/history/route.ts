@@ -1,5 +1,6 @@
 import { toJSON } from "../utils";
 import { get_history } from "../tables";
+
 export interface History {
     address: string, timestamp: number
 }
