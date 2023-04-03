@@ -41,12 +41,14 @@ export const TransferHistory = () => {
 };
 
 const TransferRow = ({ transfer }) => {
-  const url = `https://explorer.testnet.evm.eosnetwork.com/address/${transfer.address}`;
-  const address = sanitizeAddress(transfer.address);
+  const address = transfer.address;
+  let url = `https://explorer.testnet.evm.eosnetwork.com/address/${address}`;
+  if ( address.length <= 12 ) url = `https://jungle4.eosq.eosnation.io/account/${address}`
+  const short = sanitizeAddress(address);
   const time = dayjs(transfer.timestamp).fromNow();
   return (
     <Tr>
-      <Td><Link href={url} target="_blank" rel="noreferrer">{address}</Link></Td>
+      <Td><Link href={url} target="_blank" rel="noreferrer">{short}</Link></Td>
       <Td>{time}</Td>
     </Tr>
   )
