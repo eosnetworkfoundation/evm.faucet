@@ -2,14 +2,14 @@ import { Box } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 
-export const GitHub = () => (
+export const Twitter = () => (
   <Box padding={2}>
     <Link
-      href="https://github.com/eosnetworkfoundation/evm.faucet"
+      href="https://twitter.com/EOSnFoundation"
       target="_blank"
       rel="noopener noreferrer"
     >
-      <Image alt="GitHub" src="/github.svg" width={30} height={30} />
+      <Image alt="Twitter" src="/twitter.svg" width={30} height={30} />
     </Link>
   </Box>
 )

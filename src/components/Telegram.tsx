@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const Telegram = () => (
-  <Box padding={1}>
+  <Box padding={2}>
     <Link
       href="https://t.me/EOSNetworkFoundation"
       target="_blank"

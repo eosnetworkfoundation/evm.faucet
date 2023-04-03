@@ -5,6 +5,7 @@ import { GitHub } from "./Github";
 import { SendButton } from "./SendButton";
 import { Balance } from "./Balance";
 import { Telegram } from "./Telegram";
+import { Twitter } from "./Twitter";
 
 export const Faucet = () => {
   const [walletAddress, setWalletAddress] = useState("");
@@ -60,6 +61,7 @@ export const Faucet = () => {
             <Center height={"40px"}>
               <Telegram />
               <GitHub />
+              <Twitter />
             </Center>
           </Box>
         </SimpleGrid>
