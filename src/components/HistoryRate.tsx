@@ -1,9 +1,5 @@
 import useSWR from "swr";
-
-export async function fetcher(url: string) {
-    const response = await fetch(url);
-    return response.json();
-}
+import { fetcher } from "../lib/fetcher";
 
 export const HistoryRate = () => {
     const { data } = useSWR('/api/history/rate', fetcher)

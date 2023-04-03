@@ -6,12 +6,8 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import { sanitizeAddress } from "../lib/sanitizeAddress";
 import Link from "next/link";
 import { HistoryRate } from "./HistoryRate";
+import { fetcher } from "../lib/fetcher";
 dayjs.extend(relativeTime);
-
-export async function fetcher(url: string) {
-  const response = await fetch(url);
-  return response.json();
-}
 
 export const TransferHistory = () => {
   const { data, error, isLoading } = useSWR('/api/history', fetcher)

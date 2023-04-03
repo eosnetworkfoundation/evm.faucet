@@ -1,13 +1,10 @@
-import {
-  Box,
-  Input,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { SimpleGrid, Center, Box, Input, Stack, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { ChangeEvent, useState, useEffect } from "react";
-import { GithubIcon } from "./GithubIcon";
+import { GitHub } from "./Github";
 import { SendButton } from "./SendButton";
+import { Balance } from "./Balance";
+import { Telegram } from "./Telegram";
 
 export const Faucet = () => {
   const [walletAddress, setWalletAddress] = useState("");
@@ -57,16 +54,15 @@ export const Faucet = () => {
             Send
           </SendButton>
         </Stack>
-        <a
-          href="https://github.com/eosnetworkfoundation/evm.faucet"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            margin: "auto",
-          }}
-        >
-          <span style={{margin:"2px"}}><GithubIcon /></span>
-        </a>
+        <SimpleGrid columns={3} spacingX='40px'>
+          <Balance address={walletAddress} />
+          <Box w='100%'>
+            <Center height={"40px"}>
+              <Telegram />
+              <GitHub />
+            </Center>
+          </Box>
+        </SimpleGrid>
       </Stack>
     </Box>
   );

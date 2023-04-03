@@ -31,6 +31,7 @@ export const SendButton = (props: PropsWithChildren<SendButtonProps>) => {
       });
       await timeout(1000)
       mutate("/api/history");
+      mutate(`/api/balance/${walletAddress}`);
     } catch (error) {
       toast({
         title: "Error",
