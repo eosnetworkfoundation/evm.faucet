@@ -46,7 +46,7 @@ const TransferRow = (props: { id: number, receiver: string, timestamp: string}) 
   let url = `https://explorer.testnet.evm.eosnetwork.com/address/${address}`;
   if ( address.length <= 12 ) url = `https://jungle4.eosq.eosnation.io/account/${address}`
   const short = sanitizeAddress(address);
-  const time = dayjs(props.timestamp).fromNow();
+  const time = dayjs(props.timestamp + "Z").fromNow();
   return (
     <Tr>
       <Td><Link href={url} target="_blank" rel="noreferrer">{short}</Link></Td>
