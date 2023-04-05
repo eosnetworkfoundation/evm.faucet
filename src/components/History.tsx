@@ -6,11 +6,12 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import { sanitizeAddress } from "../lib/sanitizeAddress";
 import Link from "next/link";
 import { HistoryRate } from "./HistoryRate";
-import { fetcher } from "../lib/fetcher";
+import { get_history } from "../../app/api/tables";
 dayjs.extend(relativeTime);
 
 export const TransferHistory = () => {
-  const { data, error, isLoading } = useSWR('/api/history', fetcher)
+  const { data, error, isLoading } = useSWR('/api/history', () => get_history(8))
+  console.log("history", data)
 
   return (
     <Box padding="20px" maxHeight="100vh" overflow="auto">
@@ -27,9 +28,9 @@ export const TransferHistory = () => {
             </Tr>
           </Thead>
           <Tbody>
-            {data?.map((transfer, index) => (
-              <TransferRow key={index} transfer={transfer} />
-            ))}
+            {data?.rows.map((row, index) => {
+              return <TransferRow key={index} {...row} />
+            })}
           </Tbody>
           <Tfoot>
           </Tfoot>
@@ -40,12 +41,12 @@ export const TransferHistory = () => {
   );
 };
 
-const TransferRow = ({ transfer }) => {
-  const address = transfer.address;
+const TransferRow = (props: { id: number, receiver: string, timestamp: string}) => {
+  const address = props.receiver;
   let url = `https://explorer.testnet.evm.eosnetwork.com/address/${address}`;
   if ( address.length <= 12 ) url = `https://jungle4.eosq.eosnation.io/account/${address}`
   const short = sanitizeAddress(address);
-  const time = dayjs(transfer.timestamp).fromNow();
+  const time = dayjs(props.timestamp).fromNow();
   return (
     <Tr>
       <Td><Link href={url} target="_blank" rel="noreferrer">{short}</Link></Td>
