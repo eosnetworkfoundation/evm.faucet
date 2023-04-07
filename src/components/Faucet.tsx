@@ -55,7 +55,7 @@ export const Faucet = () => {
             Send
           </SendButton>
         </Stack>
-        <SimpleGrid columns={3} spacingX='40px'>
+        <SimpleGrid columns={2} spacingX='40px'>
           <Balance address={walletAddress} />
           <Box w='100%'>
             <Center height={"40px"}>

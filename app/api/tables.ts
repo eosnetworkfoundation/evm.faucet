@@ -1,24 +1,5 @@
-import { ACCOUNT } from "./constants";
+import { ACCOUNT, FAUCET } from "./constants";
 import { rpc } from "./rpc";
-
-export async function get_history_rate() {
-    const response = await get_history(2000);
-    const now = Math.floor(new Date().getTime() / 1000);
-    const last = new Date(response.rows.reverse()[0].timestamp + "Z").getTime() / 1000;
-    const total = response.rows.length;
-    const rate = total / (now - last);
-
-    return {
-        now,
-        total,
-        last,
-        rate: {
-            per_second: rate,
-            per_minute: rate * 60,
-            per_hour: rate * 60 * 60,
-        }
-    };
-}
 
 export async function get_history(limit = 8) {
     return rpc.v1.chain.get_table_rows({
@@ -33,8 +14,8 @@ export async function get_history(limit = 8) {
 
 export async function get_stats(limit = 2) {
     return rpc.v1.chain.get_table_rows({
-        code: ACCOUNT,
-        scope: ACCOUNT,
+        code: FAUCET,
+        scope: FAUCET,
         table: "stats",
         json: true,
         limit,
