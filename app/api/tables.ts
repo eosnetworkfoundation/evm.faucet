@@ -31,6 +31,17 @@ export async function get_history(limit = 8) {
     })
 }
 
+export async function get_stats(limit = 2) {
+    return rpc.v1.chain.get_table_rows({
+        code: ACCOUNT,
+        scope: ACCOUNT,
+        table: "stats",
+        json: true,
+        limit,
+        reverse: true,
+    })
+}
+
 export async function get_balance(address: any) {
     if ( address.length <= 12 ) return get_balance_eos(address);
     return get_balance_evm(address);
