@@ -11,7 +11,6 @@ dayjs.extend(relativeTime);
 
 export const TransferHistory = () => {
   const { data, error, isLoading } = useSWR('/api/history', () => get_history(8))
-  console.log("history", data)
 
   return (
     <Box padding="20px" maxHeight="100vh" overflow="auto">
