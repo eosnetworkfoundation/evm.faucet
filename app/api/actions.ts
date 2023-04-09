@@ -9,7 +9,17 @@ export const send = (to: string): AnyAction => {
         name: "send",
         data: {
             to,
-            nonce: Math.floor(Math.random() * 1000000000),
         },
+    }
+}
+
+export const nonce = (): AnyAction => {
+    return {
+        authorization,
+        account: ACCOUNT,
+        name: "nonce",
+        data: {
+            nonce: Math.floor(Math.random() * 1000000000),
+        }
     }
 }
