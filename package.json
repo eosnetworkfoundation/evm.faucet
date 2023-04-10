@@ -11,21 +11,21 @@
     "@chakra-ui/react": "2.x",
     "@emotion/react": "11.x",
     "@emotion/styled": "11.x",
-    "@wharfkit/session": "0.3.x",
-    "@wharfkit/wallet-plugin-privatekey": "0.3.x",
+    "@wharfkit/session": "latest",
+    "@wharfkit/wallet-plugin-privatekey": "latest",
     "dayjs": "1.x",
     "framer-motion": "7.x",
-    "nextjs-google-analytics": "^2.3.3",
-    "react": "18.x",
-    "react-dom": "18.x",
-    "swr": "2.x"
+    "isbot": "latest",
+    "nextjs-google-analytics": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "swr": "latest"
   },
   "devDependencies": {
-    "@types/node": "18.x",
-    "@types/react": "18.x",
-    "@types/react-dom": "18.x",
-    "next": "^13.2.4",
-    "sass": "^1.60.0",
-    "typescript": "5.x"
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "next": "canary",
+    "typescript": "latest"
   }
 }

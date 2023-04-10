@@ -1,6 +1,8 @@
+"use client";
+
 import useSWR from "swr";
 import { Box } from "@chakra-ui/react"
-import { get_balance } from "../../app/api/tables";
+import { get_balance } from "../api/tables";
 import Link from "next/link";
 
 export const Balance = (props: {address: string}) => {

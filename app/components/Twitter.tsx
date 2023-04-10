@@ -1,15 +1,17 @@
+"use client";
+
 import { Box } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 
-export const Telegram = () => (
+export const Twitter = () => (
   <Box padding={2} minWidth={30}>
     <Link
-      href="https://t.me/EOSNetworkFoundation"
+      href="https://twitter.com/EOSnFoundation"
       target="_blank"
       rel="noopener noreferrer"
     >
-      <Image alt="Telegram" src="/telegram.svg" width={30} height={30} />
+      <Image alt="Twitter" src="/twitter.svg" width={30} height={30} />
     </Link>
   </Box>
 )

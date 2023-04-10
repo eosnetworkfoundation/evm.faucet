@@ -1,12 +1,14 @@
+"use client";
+
 import { Box, Heading, Spinner, Table, Tbody, Td, Tfoot, Th, Thead, Tr } from "@chakra-ui/react";
 import useSWR from "swr";
 
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { sanitizeAddress } from "../lib/sanitizeAddress";
+import { sanitizeAddress } from "../api/utils";
 import Link from "next/link";
 import { HistoryRate } from "./HistoryRate";
-import { get_history } from "../../app/api/tables";
+import { get_history } from "../api/tables";
 dayjs.extend(relativeTime);
 
 export const TransferHistory = () => {

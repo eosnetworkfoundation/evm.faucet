@@ -1,8 +1,10 @@
+"use client";
+
 import { Button, useToast } from "@chakra-ui/react";
 import { PropsWithChildren, useState } from "react";
-import { sanitizeAddress } from "../lib/sanitizeAddress";
+import { sanitizeAddress } from "../api/utils";
 import { useSWRConfig } from "swr"
-import { timeout } from "../../app/api/utils";
+import { timeout } from "../api/utils";
 
 type SendButtonProps = {
   walletAddress: string;

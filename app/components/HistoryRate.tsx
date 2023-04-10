@@ -1,5 +1,7 @@
+"use client";
+
 import useSWR from "swr";
-import { get_stats } from "../../app/api/tables";
+import { get_stats } from "../api/tables";
 
 export const HistoryRate = () => {
     const { data } = useSWR('/api/stats', () => get_stats())
