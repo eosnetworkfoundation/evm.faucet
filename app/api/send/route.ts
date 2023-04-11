@@ -4,6 +4,8 @@ import { toJSON } from "../utils";
 
 export const runtime = "nodejs";
 
+export const revalidate = 1;
+
 export async function POST(request: Request) {
     try {
         const { to } = await request.json();
