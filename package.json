@@ -14,8 +14,6 @@
     "@wharfkit/session": "latest",
     "@wharfkit/wallet-plugin-privatekey": "latest",
     "dayjs": "1.x",
-    "framer-motion": "7.x",
-    "isbot": "latest",
     "nextjs-google-analytics": "latest",
     "react": "latest",
     "react-dom": "latest",

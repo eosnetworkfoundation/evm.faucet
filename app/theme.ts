@@ -20,6 +20,7 @@ const theme = extendTheme({
         width: '100%',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
+        color: 'white',
       },
     }),
   },

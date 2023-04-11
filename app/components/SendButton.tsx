@@ -1,5 +1,4 @@
 "use client";
-
 import { Button, useToast } from "@chakra-ui/react";
 import { PropsWithChildren, useState } from "react";
 import { sanitizeAddress } from "../api/utils";

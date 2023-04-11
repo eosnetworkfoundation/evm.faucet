@@ -1,6 +1,8 @@
 body {
   background: rgb(18,22,22);
+  color: rgb(255,255,255);
 }
+
 /*
 :root {
   --chakra-colors-gray-800: rgba(18, 22, 22);

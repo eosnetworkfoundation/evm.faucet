@@ -2,9 +2,9 @@ import { nonce, send } from "../actions";
 import { session } from "../config";
 import { toJSON } from "../utils";
 
-export const runtime = "nodejs";
+export const runtime = "edge";
 
-export async function POST(request: Request ) {
+export async function POST(request: Request) {
     try {
         const { to } = await request.json();
         if ( !to ) throw "to is required";
@@ -12,7 +12,7 @@ export async function POST(request: Request ) {
         const response = await session.transact({actions})
         return toJSON(response);
     } catch (e) {
-        const message = e.message.replace("assertion failure with message: ", "");
+        const message = e?.message?.replace("assertion failure with message: ", "") || e;
         return new Response(message, {status: 400});
     }
 }
