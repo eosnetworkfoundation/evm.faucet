@@ -16,7 +16,7 @@ export const config = {
 
 export function middleware(request: NextRequest) {
   const TIMEOUT = 60;
-  const LIMIT = 10;
+  const LIMIT = 5;
   const now = Math.floor(Date.now() / 1000);
   const cookies = request.cookies.get('usage');
   let [timestamp, counter] = (cookies ? cookies.value.split(':') : [now, 0]).map(Number);
