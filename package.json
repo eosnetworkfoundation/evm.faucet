@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@chakra-ui/icons": "latest",
     "@chakra-ui/react": "2.x",
     "@emotion/react": "11.x",
     "@emotion/styled": "11.x",
@@ -17,6 +18,7 @@
     "nextjs-google-analytics": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "recoil": "latest",
     "swr": "latest"
   },
   "devDependencies": {
