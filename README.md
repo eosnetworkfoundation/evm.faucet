@@ -13,15 +13,15 @@ $ npm run dev
 
 - [x] Faucet logo design
 - [x] User input address
-  - [ ] Regex validation
-  - [ ] EOS address
-  - [ ] EVM address
+  - [x] Regex validation
+  - [x] EOS address
+  - [x] EVM address
 - [x] Send EOS transfers (via internal API)
   - [x] EVM (via bridge `eosio.evm`)
   - [x] EOS
   - [x] Success Notification
 - [x] History of last 10 faucet transactions
-- [ ] Rate limit based on cookies (1 request per second)
+- [x] Rate limit based on cookies (1 request per second)
 - [ ] Detect EVM wallet:
   - [ ] Metamask
   - [ ] Coinbase Wallet
