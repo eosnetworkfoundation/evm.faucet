@@ -1,0 +1,55 @@
+{
+    "root": true,
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:es-x/no-new-in-es2022",
+        "plugin:svelte/recommended",
+        "eslint-config-prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint", "eslint-plugin-prettier"],
+    "ignorePatterns": ["*.cjs", "lib/*", "node_modules/**"],
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2020,
+        "extraFileExtensions": [".svelte"]
+    },
+    "env": {
+        "browser": true,
+        "es2017": true,
+        "node": true
+    },
+    "overrides": [
+        {
+            "files": ["*.svelte"],
+            "parser": "svelte-eslint-parser",
+            "parserOptions": {
+                "parser": "@typescript-eslint/parser"
+            }
+        }
+    ],
+    "rules": {
+        "comma-dangle": "warn",
+        "indent": ["error", 4],
+        "prettier/prettier": "warn",
+        "no-console": "warn",
+        "sort-imports": [
+            "warn",
+            {
+                "ignoreCase": true,
+                "ignoreDeclarationSort": true
+            }
+        ],
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/no-namespace": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-empty-function": "warn",
+        "@typescript-eslint/no-this-alias": "warn",
+        "no-inner-declarations": "off",
+        "es-x/no-class-fields": "off",
+        "es-x/no-export-ns-from": "off"
+    }
+}

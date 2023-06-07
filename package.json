@@ -1,31 +1,56 @@
 {
-  "name": "evm-faucet",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "@chakra-ui/icons": "latest",
-    "@chakra-ui/react": "2.x",
-    "@emotion/react": "11.x",
-    "@emotion/styled": "11.x",
-    "@wharfkit/session": "latest",
-    "@wharfkit/wallet-plugin-privatekey": "latest",
-    "dayjs": "1.x",
-    "nextjs-google-analytics": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "recoil": "latest",
-    "swr": "latest"
-  },
-  "devDependencies": {
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "next": "canary",
-    "typescript": "latest"
-  }
+    "name": "evm-faucet",
+    "version": "0.2.0",
+    "private": true,
+    "scripts": {
+        "dev": "vite dev",
+        "build": "vite build",
+        "preview": "vite preview",
+        "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+        "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+        "test:unit": "vitest",
+        "lint": "prettier --plugin-search-dir . --check . && eslint .",
+        "format": "prettier --plugin-search-dir . --write ."
+    },
+    "devDependencies": {
+        "@sveltejs/adapter-auto": "^2.0.0",
+        "@sveltejs/adapter-node": "^1.2.4",
+        "@sveltejs/kit": "^1.5.0",
+        "@typescript-eslint/eslint-plugin": "^5.45.0",
+        "@typescript-eslint/parser": "^5.45.0",
+        "@wharfkit/session": "latest",
+        "@wharfkit/wallet-plugin-privatekey": "latest",
+        "autoprefixer": "^10.4.7",
+        "cypress": "^12.11.0",
+        "dayjs": "1.x",
+        "dotenv": "^16.0.3",
+        "eslint": "^8.28.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-es-x": "^6.1.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-svelte": "^2.26.0",
+        "postcss": "^8.4.14",
+        "postcss-load-config": "^4.0.1",
+        "prettier": "^2.8.0",
+        "prettier-plugin-svelte": "^2.8.1",
+        "prisma": "^4.13.0",
+        "svelte": "^3.54.0",
+        "svelte-check": "^3.0.1",
+        "svelte-preprocess": "^5.0.3",
+        "tailwindcss": "^3.1.5",
+        "tslib": "^2.4.1",
+        "typescript": "^5.0.0",
+        "vite": "^4.3.0",
+        "vitest": "^0.25.3"
+    },
+    "type": "module",
+    "dependencies": {
+        "express": "^4.18.2"
+    },
+    "files": [
+        "/src/*.*",
+        "/src/static/**",
+        "/src/routes/**",
+        "/src/lib/**"
+    ]
 }

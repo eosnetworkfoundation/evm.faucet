@@ -4,10 +4,7 @@
 
 ## Quickstart
 
-```
-$ npm install
-$ npm run dev
-```
+TBD
 
 ## Features
 
