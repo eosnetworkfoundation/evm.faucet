@@ -1,6 +1,0 @@
-POST http://localhost:3000/api/send HTTP/1.1
-content-type: application/json
-
-{
-    "to": "0xaa2F34E41B397aD905e2f48059338522D05CA534"
-}
