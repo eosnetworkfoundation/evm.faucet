@@ -1,18 +1,19 @@
 import { Session, SessionArgs, SessionOptions } from '@wharfkit/session'
 import { WalletPluginPrivateKey } from '@wharfkit/wallet-plugin-privatekey'
-import { ACTOR, BROADCAST, CHAINS, CHAIN_ID, CHAIN_URL, PERMISSION } from './constants';
+import { ACTOR, BROADCAST, CHAIN_ID, CHAIN_URL, CHAINS, PERMISSION } from './constants';
+import { PRIVATE_KEY } from '$env/static/private';
 
 // Required
-if (!process.env.PRIVATE_KEY) throw new Error('PRIVATE_KEY is required');
+if (!PRIVATE_KEY) throw new Error('PRIVATE_KEY is required');
 
 // Optional
 export const permissionLevel = {
     actor: ACTOR,
     permission: PERMISSION,
-}
-export const authorization = [permissionLevel]
+};
+export const authorization = [permissionLevel];
 
-export const private_key = new WalletPluginPrivateKey(process.env.PRIVATE_KEY)
+export const private_key = new WalletPluginPrivateKey(PRIVATE_KEY);
 
 const sessionArgs = (chain: string): SessionArgs => {
     return {
@@ -22,12 +23,12 @@ const sessionArgs = (chain: string): SessionArgs => {
         },
         permissionLevel,
         walletPlugin: private_key
-    }
-}
+    };
+};
 
 const sessionOptions: SessionOptions = {
     expireSeconds: 30,
     broadcast: BROADCAST
-}
+};
 
-export const session = (chain: string) => new Session(sessionArgs(chain), sessionOptions)
+export const session = (chain: string) => new Session(sessionArgs(chain), sessionOptions);

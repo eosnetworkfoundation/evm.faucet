@@ -1,9 +1,11 @@
-export const ACTOR = process.env.ACTOR ?? 'eosio.faucet';
-export const ACCOUNT = process.env.ACCOUNT ?? ACTOR;
-export const EVM = 'eosio.evm';
-export const FAUCET = 'eosio.faucet';
-export const PERMISSION = process.env.PERMISSION ?? 'active';
-export const BROADCAST = Boolean(process.env.BROADCAST ?? 'true');
+import { PUBLIC_ACTOR, PUBLIC_BROADCAST_TRANSACTION, PUBLIC_PERMISSION } from '$env/static/public';
+// change import from
+export const ACTOR = PUBLIC_ACTOR ?? 'eosio.faucet';
+export const ACCOUNT = ACTOR;
+//export const FAUCET = 'eosio.faucet';
+export const FAUCET = ACTOR;
+export const PERMISSION = PUBLIC_PERMISSION ?? 'active';
+export const BROADCAST = Boolean(PUBLIC_BROADCAST_TRANSACTION ?? 'true');
 
 export const CHAINS = {
     jungle4: {
