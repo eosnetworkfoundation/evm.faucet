@@ -1,9 +1,9 @@
 import { PUBLIC_ACTOR } from "$env/static/public";
 
 export const ACTOR = PUBLIC_ACTOR;
-export const ACCOUNT = ACTOR;
+export const ACCOUNT = 'eosio.faucet';
 export const EVM = 'eosio.evm';
-export const FAUCET = ACTOR;
+export const FAUCET = ACCOUNT;
 export const PERMISSION = process.env.PERMISSION ?? 'active';
 export const BROADCAST = Boolean(process.env.BROADCAST ?? 'true');
 

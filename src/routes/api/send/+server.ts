@@ -2,7 +2,7 @@ import { nonce, send } from "$lib/actions";
 import { session } from "$lib/config";
 import { toJSON } from "$lib/utils";
 
-export async function POST(request: Request) {
+export async function POST({ request }) {
     try {
         const { to, chain } = await request.json();
         if ( !to ) throw "to is required";
