@@ -1,7 +1,8 @@
 import { nonce, send } from '$lib/actions';
 import { session } from '$lib/config';
 import { json } from '@sveltejs/kit';
-export async function POST(request: Request) {
+
+export async function POST({ request }) {
     try {
         const { to, chain } = await request.json();
         if (!to) throw 'to is required';

@@ -22,13 +22,13 @@ const sessionArgs = (chain: string): SessionArgs => {
             url: CHAINS[chain].url || CHAIN_URL,
         },
         permissionLevel,
-        walletPlugin: private_key
+        walletPlugin: private_key,
     };
 };
 
 const sessionOptions: SessionOptions = {
     expireSeconds: 30,
-    broadcast: BROADCAST
+    broadcast: BROADCAST,
 };
 
 export const session = (chain: string) => new Session(sessionArgs(chain), sessionOptions);
