@@ -1,5 +1,6 @@
-import { Session, SessionArgs, SessionOptions } from '@wharfkit/session'
-import { WalletPluginPrivateKey } from '@wharfkit/wallet-plugin-privatekey'
+import { Session } from '@wharfkit/session';
+import type { SessionArgs, SessionOptions } from '@wharfkit/session';
+import { WalletPluginPrivateKey } from '@wharfkit/wallet-plugin-privatekey';
 import { ACTOR, BROADCAST, CHAIN_ID, CHAIN_URL, CHAINS, PERMISSION } from './constants';
 import { PRIVATE_KEY } from '$env/static/private';
 
