@@ -1,10 +1,14 @@
-import { APIClient } from "@wharfkit/session"
-import { CHAINS, CHAIN_URL } from "./constants"
+import { APIClient } from '@wharfkit/session';
+import { CHAIN_URL, CHAINS } from './constants';
+import { PUBLIC_MOCK_HTTP } from '$env/static/public';
+import { MockProvider } from '../tests/MockProvider';
 
-export const rpc = new APIClient({
-    url: CHAIN_URL,
-})
+const setRPC = (url: string): APIClient => {
+    if (PUBLIC_MOCK_HTTP === 'true') {
+        return new APIClient({ provider: new MockProvider() });
+    }
+    return new APIClient({ url: CHAIN_URL });
+};
+export const rpc: APIClient = setRPC(CHAIN_URL);
 
-export const rpcs = (chain: string) => {
-    return new APIClient({url: CHAINS[chain].url})
-}
+export const rpcs = (chain: string) => setRPC(CHAINS[chain].url);
