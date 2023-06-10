@@ -1,11 +1,10 @@
-import { PUBLIC_ACTOR, PUBLIC_BROADCAST_TRANSACTION, PUBLIC_PERMISSION } from '$env/static/public';
-// change import from
-export const ACTOR = PUBLIC_ACTOR ?? 'eosio.faucet';
+import { PUBLIC_ACTOR, PUBLIC_PERMISSION, PUBLIC_BROADCAST } from "$env/static/public";
+
+export const ACTOR = PUBLIC_ACTOR;
 export const ACCOUNT = 'eosio.faucet';
-//export const FAUCET = 'eosio.faucet';
 export const FAUCET = ACCOUNT;
 export const PERMISSION = PUBLIC_PERMISSION ?? 'active';
-export const BROADCAST = Boolean(PUBLIC_BROADCAST_TRANSACTION ?? 'true');
+export const BROADCAST = Boolean(PUBLIC_BROADCAST ?? 'true');
 
 export const CHAINS = {
     jungle4: {

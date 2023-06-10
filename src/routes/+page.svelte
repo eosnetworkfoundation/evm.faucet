@@ -1,5 +1,7 @@
-<script lang="ts">
+<script>
+    import Navbar from '../components/Navbar.svelte';
 </script>
 
-<h1>Welcome to EVM Faucet</h1>
-<p>This is an empty page</p>
+<div class="bg-black">
+    <Navbar></Navbar>
+</div>
