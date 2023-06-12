@@ -4,6 +4,7 @@ import { promisify } from 'util';
 
 const readFile = promisify(_readFile);
 import type { APIProvider, APIResponse } from '@wharfkit/session';
+import {json} from "@sveltejs/kit";
 
 const __dirname = path.resolve(path.dirname(''));
 
@@ -20,6 +21,24 @@ export interface MockInterface {
         location: string | null;
     };
 }
+
+/*
+ * helper function to keep service code clean
+ * allows one line implementation of mock inside API call
+ * default error message returned when file can not be loaded
+ */
+export async function mockResponse(filename: string) {
+    const mocker = new MockProvider();
+    const sendDataMock = await mocker.load(filename);
+    return json(
+        sendDataMock?.response.body || { message: 'error: no mock response found' },
+        { status: sendDataMock?.response.code || 550 },
+    );
+}
+
+/*
+ * class to handel loading of mocks
+ */
 export class MockProvider implements APIProvider {
     async load(filename: string): Promise<MockInterface | undefined> {
         const fullPath = __dirname + '/src/tests';
@@ -27,12 +46,14 @@ export class MockProvider implements APIProvider {
         return await this.getMockData(filePath);
     }
 
-    mapFilename(path: string) {
+    // keeping this hook if an account balance path is needed
+    private mapFilename(path: string) {
         if (path === '/get_rows') return 'mock-data-get-rows.json';
+        // if (path === '/account') return 'undefined.json'
         return 'mock-data-get-rows.json';
     }
 
-    convertToAPIResponse(data: MockInterface): APIResponse {
+    private convertToAPIResponse(data: MockInterface): APIResponse {
         if (!data) {
             throw 'Unable to establish mock api';
         }
@@ -61,7 +82,7 @@ export class MockProvider implements APIProvider {
         return this.convertToAPIResponse(existing);
     }
 
-    async getMockData(filePath: string) {
+    private async getMockData(filePath: string) {
         try {
             const data = await readFile(filePath);
             const dataObject = JSON.parse(data.toString('utf8'));
