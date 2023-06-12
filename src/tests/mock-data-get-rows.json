@@ -1,0 +1,47 @@
+{
+"url": "https://jungle4.api.eosnation.io/v1/chain/get_table_rows",
+"method": "POST",
+"request": {
+    "contentType": "application/json",
+    "payload": {"code":"eosio.faucet","scope":"eosio.faucet","table":"history","json":true,"limit":8,"reverse":true,"key_type":"name"}
+},
+"response": {
+    "code": 200,
+    "body": {
+        "rows": [
+            {
+              "id": 3779886,
+              "receiver": "0x485775834f83EDb355c5399d33C3d03A39B4AAaf",
+             "timestamp": "2023-06-08T23:43:49"
+         },
+            {
+                "id": 3779885,
+                "receiver": "0x69a3372BBa79e6af117D5a114659B0cC732F9Af8",
+                "timestamp": "2023-06-08T23:29:35"
+            },
+            {
+                "id": 3779884,
+                "receiver": "0x69a3372BBa79e6af117D5a114659B0cC732F9Af8",
+                "timestamp": "2023-06-08T23:29:33"
+            },
+            {
+                "id": 3779883,
+                "receiver": "0x69a3372BBa79e6af117D5a114659B0cC732F9Af8",
+                "timestamp": "2023-06-08T23:29:31"
+            },
+            {
+                "id": 3779882,
+                "receiver": "0x69a3372BBa79e6af117D5a114659B0cC732F9Af8",
+                "timestamp": "2023-06-08T23:29:28"
+            },
+            {
+                "id": 3779881,
+                "receiver": "0x69a3372BBa79e6af117D5a114659B0cC732F9Af8",
+                "timestamp": "2023-06-08T23:29:25"
+            }
+        ],
+        "more": false,
+        "next_key": ""
+    }
+}
+}
