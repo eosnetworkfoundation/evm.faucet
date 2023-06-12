@@ -5,11 +5,11 @@ import { defineConfig } from 'cypress'
 export default defineConfig({
   projectId: 'ENF EVM Faucet',
   e2e: {
-    baseUrl: 'http://10.3.0.1:4173',
+    baseUrl: 'http://localhost:4173',
   },
   //env: {
   //    proto: 'http',
-  //    host: '10.3.0.1:4173',
+  //    host: '10.10.10.1:4173',
   //},
   video: false,
 })
