@@ -1037,7 +1037,7 @@ cssesc@^3.0.0:
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
   integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
 
-cypress@^12.11.0:
+cypress@^12.14.0:
   version "12.14.0"
   resolved "https://registry.yarnpkg.com/cypress/-/cypress-12.14.0.tgz#37a19b85f5e9d881995e9fee1ddf41b3d3a623dd"
   integrity sha512-HiLIXKXZaIT1RT7sw1sVPt+qKtis3uYNm6KwC4qoYjabwLKaqZlyS/P+uVvvlBNcHIwL/BC6nQZajpbUd7hOgQ==
