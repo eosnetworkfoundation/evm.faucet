@@ -1,7 +1,8 @@
 <script>
     import Navbar from '../components/Navbar.svelte';
+    import Sidebar from '../components/Sidebar.svelte';
 </script>
 
-<div class="bg-black">
-    <Navbar></Navbar>
-</div>
+<Navbar />
+<Sidebar />
+
