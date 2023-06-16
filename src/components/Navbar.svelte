@@ -1,6 +1,5 @@
-<nav class="fixed w-full bg-transparent text-white z-10">
-    <div class="bg-black bg-opacity-0 blur-0 backdrop-blur-0" />
-    <div class="flex justify-between items-center py-4 px-4 contained">
+<nav class="w-full h-[70px] text-white z-10">
+    <div class="flex justify-between items-center p-4 contained">
         <div class="flex">
             <a
                 class="center"
