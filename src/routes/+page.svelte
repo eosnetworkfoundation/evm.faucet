@@ -1,2 +1,9 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+    import Navbar from '../components/Navbar.svelte';
+    import History from '../components/History.svelte';
+</script>
+
+<Navbar />
+<div class="sm:h-[calc(100%-70px)] sm:float-right flex flex-col items-start pl-6 py-6 gap-6 bg-[rgb(27,30,35)]/50">
+    <History />
+</div>

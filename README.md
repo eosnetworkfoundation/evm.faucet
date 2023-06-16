@@ -4,7 +4,30 @@
 
 ## Quickstart
 
-TBD
+Create an `.env` file with `PRIVATE_KEY` and `PUBLIC_MOCK_HTTP`
+```yaml
+# .env production
+PRIVATE_KEY=1f7f00ee0e0000000f0e00e0e0fe00e0e70f0000e07000e000e00ee07070000e
+PUBLIC_MOCK_HTTP=false
+```
+Then build and run
+```shell
+yarn build
+yarn preview 
+```
+
+***Testing*** create a testing specific `testing.env` environment file
+```yaml
+# .env production
+PRIVATE_KEY=1f7f00ee0e0000000f0e00e0e0fe00e0e70f0000e07000e000e00ee07070000e
+PUBLIC_MOCK_HTTP=true
+```
+Then build in testing mode and run
+```shell
+yarn build --mode testing
+yarn preview 
+```
+
 
 ## Features
 
@@ -31,4 +54,3 @@ To run the tests use the following command
 `npx cypress run`
 
 You may find the spec tests under `cypress/e2e/*.cy.ts`. You may add additional tests to the existing file or start a new file in the same directory. Files in the `cypress/e2e` directory will automatically be picked up. 
- 

@@ -1,0 +1,12 @@
+{
+"url": "https://faucet.testnet.evm.eosnetwork.com/api/ratelimit",
+"method": "POST",
+"request": {
+    "Content-Type": "application/json",
+    "payload": {"to":"0x485775834f83EDb355c5399d33C3d03A39B4AAaf","chain":"jungle4"}
+},
+"response": {
+    "code": 429,
+    "body": "rate limit exceeded"
+}
+}
