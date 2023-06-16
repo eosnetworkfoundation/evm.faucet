@@ -31,4 +31,11 @@ describe('Test Mock Creation', () => {
         expect(wharfAPIResponse).toHaveProperty('json');
         expect(wharfAPIResponse.json.rows.length).toBeGreaterThan(1);
     });
+    it('MockProvider returns 500 error when path does not map', async () => {
+        const mocker = new MockProvider();
+        const wharfAPIResponse = await mocker.call('/foobar');
+        expectTypeOf(wharfAPIResponse).toMatchTypeOf<APIResponse>;
+        expect(wharfAPIResponse).toHaveProperty('json');
+        expect(wharfAPIResponse.status).toBe('500');
+    });
 });

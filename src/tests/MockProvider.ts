@@ -1,12 +1,10 @@
-import { readFile as _readFile } from 'fs';
-import path from 'path';
-import { promisify } from 'util';
-
-const readFile = promisify(_readFile);
 import type { APIProvider, APIResponse } from '@wharfkit/session';
-import {json} from "@sveltejs/kit";
+import { json } from '@sveltejs/kit';
 
-const __dirname = path.resolve(path.dirname(''));
+import * as mock_data_get_rows from './mock-data-get-rows.json';
+import * as mock_data_send from './mock-data-send.json';
+import * as mock_data_ratelimit from './mock-data-ratelimit.json';
+import * as mock_data_send_307 from './mock-data-send-307.json';
 
 export interface MockInterface {
     url: string;
@@ -30,10 +28,9 @@ export interface MockInterface {
 export async function mockResponse(filename: string) {
     const mocker = new MockProvider();
     const sendDataMock = await mocker.load(filename);
-    return json(
-        sendDataMock?.response.body || { message: 'error: no mock response found' },
-        { status: sendDataMock?.response.code || 550 },
-    );
+    return json(sendDataMock?.response.body || { message: 'error: no mock response found' }, {
+        status: sendDataMock?.response.code || 550,
+    });
 }
 
 /*
@@ -41,16 +38,44 @@ export async function mockResponse(filename: string) {
  */
 export class MockProvider implements APIProvider {
     async load(filename: string): Promise<MockInterface | undefined> {
-        const fullPath = __dirname + '/src/tests';
-        const filePath = path.join(fullPath, filename);
-        return await this.getMockData(filePath);
+        console.log(`processing ${filename}`);
+        return await this.getMockData(this.pathToJson(filename));
     }
 
-    // keeping this hook if an account balance path is needed
-    private mapFilename(path: string) {
-        if (path === '/get_rows') return 'mock-data-get-rows.json';
-        // if (path === '/account') return 'undefined.json'
-        return 'mock-data-get-rows.json';
+    // maps path to the mock data we imported as json files
+    private pathToJson(path: string) {
+        let mockData;
+        switch (path) {
+        case '/get_rows': {
+                mockData = mock_data_get_rows;
+            break;
+        }
+            case '/v1/chain/get_table_rows': {
+                mockData = mock_data_get_rows;
+                break;
+            }
+        case 'mock-data-get-rows.json': {
+            mockData = mock_data_get_rows;
+            break;
+        }
+        case 'mock-data-send.json': {
+            mockData = mock_data_send;
+            break;
+        }
+        case 'mock-data-send-307.json': {
+            mockData = mock_data_send_307;
+            break;
+        }
+        case 'mock-data-ratelimit.json': {
+            mockData = mock_data_ratelimit;
+            break;
+        }
+        default: {
+            mockData = JSON.parse(`{"contentType": "application/json", "request": {"payload":"${path}"}, "response": {"code":"500", "body":"Error ${path} did not map to anything in MockProvider.pathToJson()"}}`);
+            break;
+        }
+        }
+        return mockData;
     }
 
     private convertToAPIResponse(data: MockInterface): APIResponse {
@@ -67,8 +92,7 @@ export class MockProvider implements APIProvider {
     }
 
     async call(path: string, params?: unknown) {
-        const filename = this.mapFilename(path);
-        const existing: MockInterface = await this.load(filename).then((result): MockInterface => {
+        const existing: MockInterface = await this.load(path).then((result): MockInterface => {
             // defined result with real values
             if (result) return result as MockInterface;
             // return an empty MockInterface, undefined isn't valid for APIResponse
@@ -82,20 +106,18 @@ export class MockProvider implements APIProvider {
         return this.convertToAPIResponse(existing);
     }
 
-    private async getMockData(filePath: string) {
+    private async getMockData(dataObject: any) {
         try {
-            const data = await readFile(filePath);
-            const dataObject = JSON.parse(data.toString('utf8'));
             const mockObject: MockInterface = {
                 url: dataObject.url,
                 method: dataObject.method,
                 request: {
                     contentType: dataObject.request.contentType,
-                    payload: dataObject.request.payload || '',
+                    payload: dataObject.request.payload,
                 },
                 response: {
                     code: dataObject.response.code,
-                    body: dataObject.response.body || '',
+                    body: dataObject.response.body,
                     location: dataObject.response.location || null,
                 },
             };
