@@ -21,7 +21,7 @@
         "@wharfkit/session": "latest",
         "@wharfkit/wallet-plugin-privatekey": "latest",
         "autoprefixer": "^10.4.7",
-        "cypress": "^12.11.0",
+        "cypress": "^12.14.0",
         "dayjs": "1.x",
         "dotenv": "^16.0.3",
         "eslint": "^8.28.0",

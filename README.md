@@ -49,4 +49,8 @@ yarn preview
 - [x] Mobile optimization
 - [x] Edge runtime
 
-## Testing 
+## Cypress Testing 
+To run the tests use the following command
+`npx cypress run`
+
+You may find the spec tests under `cypress/e2e/*.cy.ts`. You may add additional tests to the existing file or start a new file in the same directory. Files in the `cypress/e2e` directory will automatically be picked up. 
