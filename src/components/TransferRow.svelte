@@ -4,6 +4,7 @@
     import relativeTime from 'dayjs/plugin/relativeTime';
     import updateLocale from 'dayjs/plugin/updateLocale';
     import OpenIcon from '$lib/assets/open-in-newtab.svg';
+    import { CHAINS } from '$lib/constants';
 
     dayjs.extend(relativeTime);
     dayjs.extend(updateLocale);
@@ -11,7 +12,7 @@
         relativeTime: {
             future: 'in %s',
             past: '%s ago',
-            s: 'a few seconds',
+            s: 'seconds',
             m: 'a minute',
             mm: '%d min',
             h: 'an hour',
@@ -29,13 +30,13 @@
     export let timestamp;
 
     let url = `https://explorer.testnet.evm.eosnetwork.com/address/${receiver}`;
-    if (receiver.length <= 12) url = `https://jungle4.eosq.eosnation.io/account/${receiver}`;
+    if (receiver.length <= 12) url = `${CHAINS.jungle4.url}/account/${receiver}`;
     const short = sanitizeAddress(receiver);
     const time = dayjs(timestamp + 'Z').fromNow();
 </script>
 
 <tr
-    class="flex flex-row justify-between items-center py-2.5 w-64 h-10 rounded-lg"
+    class="flex flex-row justify-between items-center py-2.5 w-full sm:w-64 h-10 rounded-lg"
 >
     <td class="contents">
         <a

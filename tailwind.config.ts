@@ -8,6 +8,10 @@ export default {
             fontSize: {
                 xxs: ['.625rem', '12px'],
             },
+            colors: {
+                'background-black': '#15171B',
+                'history-gray': '#B1B1B1',
+            },
         },
         fontFamily: {
             table: ['Inter', ...defaultTheme.fontFamily.sans],
